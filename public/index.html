@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple E-Commerce</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fefcea, #f1da36);
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #ff6f00;
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 2px #00000033;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .box {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+    .box:hover {
+      transform: scale(1.02);
+    }
+    h2 {
+      color: #ff6f00;
+      margin-top: 0;
+    }
+    input, select, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background-color: #ff6f00;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      padding: 6px 0;
+    }
+    p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simple E-Commerce</h1>
+
+  <div class="container">
+    <!-- 🧾 Register -->
+    <div class="box">
+      <h2>Register</h2>
+      <input type="text" id="regUsername" placeholder="Username" required />
+      <input type="email" id="regEmail" placeholder="Email" required />
+      <input type="password" id="regPassword" placeholder="Password" required />
+      <select id="regRole">
+        <option value="customer">Customer</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button onclick="register()">Register</button>
+      <p id="registerStatus"></p>
+    </div>
+
+    <!-- 🔐 Login -->
+    <div class="box">
+      <h2>Login</h2>
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p id="loginStatus"></p>
+    </div>
+
+    <!-- 📦 Product List -->
+    <div class="box">
+      <h2>Products</h2>
+      <button onclick="fetchProducts()">View Products</button>
+      <ul id="productList"></ul>
+    </div>
+
+    <!-- ➕ Add to Cart -->
+    <div class="box">
+      <h2>Add to Cart</h2>
+      <input type="number" id="productId" placeholder="Product ID" />
+      <input type="number" id="quantity" placeholder="Quantity" />
+      <button onclick="addToCart()">Add</button>
+      <p id="cartStatus"></p>
+    </div>
+
+    <!-- 🛒 View Cart -->
+    <div class="box">
+      <h2>Cart</h2>
+      <button onclick="viewCart()">View Cart</button>
+      <ul id="cartItems"></ul>
+    </div>
+
+    <!-- ✅ Place Order -->
+    <div class="box">
+      <h2>Place Order</h2>
+      <button onclick="placeOrder()">Checkout</button>
+      <p id="orderStatus"></p>
+    </div>
+  </div>
+
+  <script src="./scripts.js"></script>
+</body>
+</html>
